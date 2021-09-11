@@ -89,5 +89,8 @@ def hangman():
         time.sleep(2)
         clear()
 
+#mekanisme gamenya ydah tapi belum ditentukan kondisi menangnya gimana
+#belum juga nunjukin _ _ _ _ sesuai length wordnya 
+
 
 hangman()
