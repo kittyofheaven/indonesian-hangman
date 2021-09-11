@@ -1,5 +1,6 @@
 import random
 import re
+import time
 from wordlist import makanan, hewan
 from os import system, name
 from animation import hangman_list
@@ -27,10 +28,18 @@ def hangman():
             }
     
     #ambil kata
-    theme_choice = raw_input('Pilih tema : ')
-    word = get_word(tema[theme_choice])
-    clear()
+    theme_choice = input('Pilih tema : ')
     
+    if bool(re.compile(theme_choice).findall(str(tema))) : 
+        word = get_word(tema[theme_choice])
+        clear()
+    
+    else :
+        print('tema '+ theme_choice + ' tidak ditemukan')
+        print('exiting')
+        time.sleep(1)
+        exit()
+        
     #definisiin tries
     tries = 0 
 
@@ -40,7 +49,7 @@ def hangman():
 
         #kasih tau kata nya
         print('your word is : ' + word)
-        player_guess = raw_input('your letter guess : ').upper()
+        player_guess = input('your letter guess : ').upper()
         print(player_guess)
 
         if bool(re.compile(player_guess).search(word.upper())) : 
