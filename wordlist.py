@@ -1,0 +1,1 @@
+makanan = ['mie ayam', 'soto', 'soto kudus', 'soto lamongan', 'bihun', 'kari ayam', 'sop ikan', 'gulai',]
