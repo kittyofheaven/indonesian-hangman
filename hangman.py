@@ -20,9 +20,12 @@ def get_word(player_choice):
 def hangman():
     print("1. Makanan")
     print("2. Hewan")
-    tema = {1 : makanan, 2 : hewan,}
-    #print(tema[1])
-    theme_choice = input('Pilih tema : ')
+    
+    tema = {'1' : makanan, 'makanan' : makanan, 'Makanan' : makanan, 
+            '2' : hewan,'hewan' : hewan, 'Hewan' :hewan
+            }
+    
+    theme_choice = raw_input('Pilih tema : ')
     word = get_word(tema[theme_choice])
     clear()
     print(word)
