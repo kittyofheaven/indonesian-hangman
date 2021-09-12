@@ -1,6 +1,7 @@
 import random
 import re
 import time
+import string
 from wordlist import makanan, hewan
 from os import system, name
 from animation import hangman_list
@@ -17,6 +18,9 @@ def clear():
 def get_word(player_choice):
     word = random.choice(player_choice)
     return word
+
+def split(word):
+    return [char for char in word]
 
 def hangman():
     print("1. Makanan")
@@ -44,6 +48,9 @@ def hangman():
     tries = 0 
     guessed_letter = []
     wrong_guessed_letter = []
+    question = {}
+    word_completion = '_' * len(word)
+    list_word_completion = split(word_completion)
 
     while tries != 8 :
         #print hangmannya
@@ -53,13 +60,21 @@ def hangman():
         print('wrong letter : ' + str(wrong_guessed_letter))
 
         #kasih tau kata nya
-        print('your word is : ' + word)
+        print('your word is : ' + word_completion)
         player_guess = input('your letter guess : ').upper()
         #print(player_guess)
 
+        
+
+
         if bool(re.compile(player_guess).search(word.upper())) and len(player_guess) == 1 : 
-            print('you guessed 1 letter')
-            guessed_letter.append(player_guess)
+            
+            if player_guess in guessed_letter :
+                print("you already guessed " + player_guess)
+            else :
+                print('you guessed 1 letter')
+                guessed_letter.append(player_guess)
+        
 
         elif len(player_guess) > 1 :
             print('invalid guess, try again!')
